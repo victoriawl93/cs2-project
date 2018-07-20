@@ -12,13 +12,13 @@
 /*
  * the definition of array variable to store items
  */
- static Item[MAX_ITEM_SIZE] ItemsArray;
+ Item ItemsArray[MAX_ITEM_SIZE];
 
 
 /*
  * Integer variable to store the number of stored items
  */
-static int numberOfStoredItems;
+static int currentNum = 0;
 
 
 /*
@@ -27,27 +27,24 @@ static int numberOfStoredItems;
 
  /* function for insertion of a new data item */
  void insert_item() {
-   char *newName;
-   char *newCategory;
-   int *newX;
-   int *newY;
+  printf("Enter the name of item: \n");
+  scanf("%s", ItemsArray[currentNum].name);
+  printf("Enter the category of item: \n");
+  scanf("%s", ItemsArray[currentNum].category);
+  printf("Enter the x-coordinate: \n");
+  scanf("%d", &ItemsArray[currentNum].x);
+  printf("Enter the y-coordinate: \n");
+  scanf("%d", &ItemsArray[currentNum].y);
 
-    printf("Enter the name of item: \n");
-    scanf("%s\n", newName);
-    printf("Enter the category of item: \n");
-    scanf("%s\n", newCategory);
-    printf("Enter the x-coordinate: \n");
-    scanf("%d\n", newX);
-    printf("Enter the y-coordinate: \n");
-    scanf("%d\n", newY);
-    // insert these 4 into ItemsArray
+  currentNum++;
+
  }
 
  /* function for printing all data items */
   void print_all_items() {
     printf("|Item name |Category |Position |\n");
     printf("+----------+---------+---------+\n");
-    for (int i = 0 ;i < sizeof(ItemsArray) ;i++ ) {
+    for (int i = 0 ;i < currentNum ;i++ ) {
       printf("|%s|%s|(%d,%d)|\n", ItemsArray[i].name, ItemsArray[i].category, ItemsArray[i].x, ItemsArray[i].y);
     }
     printf("+----------+---------+---------+\n");

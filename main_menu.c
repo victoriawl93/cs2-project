@@ -5,6 +5,8 @@
 #include "item.h"
 #include "database.h"
 
+void insert_item(void);
+void print_all_items(void);
 
 /* main function */
 int main(void)
@@ -14,7 +16,7 @@ int main(void)
     for(;;) {
       printf("Enter operation code: ");
     scanf(" %c", &code);
-    while (getchar() != '¥n')
+    while (getchar() != '\n')
     ;
     switch(code) {
       case 'i': insert_item();
@@ -26,8 +28,9 @@ int main(void)
       // case 'u': update();
       //   break;
       case 'q': return 0;
-      default: printf("Illegal code¥n");
+      default: printf("Illegal code\n");
     }
-    printf("¥n");
+    printf("\n");
+  }
     return 0;
 }

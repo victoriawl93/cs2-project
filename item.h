@@ -27,8 +27,8 @@
  */
 
 typedef struct {
-  char name[MAX_NAME_LENGTH];
-  char category[MAX_CATEGORY_LENGTH];
+  char name[MAX_NAME_LENGTH+1];
+  char category[MAX_CATEGORY_LENGTH+1];
   int x;
   int y;
 } Item;
