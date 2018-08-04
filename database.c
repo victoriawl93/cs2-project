@@ -12,7 +12,7 @@
 /*
  * the definition of array variable to store items
  */
- Item ItemsArray[MAX_ITEM_SIZE];
+Item ItemsArray[MAX_ITEM_SIZE];
 
 
 /*
@@ -42,6 +42,7 @@ static int currentNum = 0;
 
  /* function for printing all data items */
   void print_all_items() {
+        printf("curr: %d\n", currentNum);
     printf("|Item name |Category |Position |\n");
     printf("+----------+---------+---------+\n");
     for (int i = 0 ;i < currentNum ;i++ ) {
@@ -51,9 +52,44 @@ static int currentNum = 0;
   }
 
 /* function for loading items from a file */
+void load_items() {
 
+    FILE * fp;
+    char buffer[1024];
+    if ((fp = fopen("data.csv", "r")) == NULL) {
+         fprintf(stderr, "Cannot open file %s.\n");
+     }
+
+    int line = 1;
+    printf("|Item name |Category |Position |\n");
+    printf("+----------+---------+---------+\n");
+    while (fgets(buffer, sizeof(buffer), fp) != NULL) {
+      if (!(sscanf(buffer, "%s %s %d %d", ItemsArray[currentNum].name, ItemsArray[currentNum].category, &ItemsArray[currentNum].x, &ItemsArray[currentNum].y))) {
+          fprintf(stderr, "Error processing line %d, ignored.\n", line);
+          ++line;
+          continue;
+      }
+      printf("|inserted |\n");
+      printf("curr: %d\n", currentNum);
+      ++line;
+      currentNum++;
+    }
+    fclose(fp);
+}
 /* function for saving items into a file */
+void save_items(){
 
+    FILE * fp;
+    if ((fp = fopen("test.csv", "w")) == NULL) {
+         fprintf(stderr, "Cannot open file %s.\n");
+     }
+     // for (int i = 0; i < currentNum; i++) {
+       fwrite (ItemsArray, sizeof(ItemsArray), 1, fp);
+
+       printf("ok |\n");
+       fclose(fp);
+     // }
+}
 /* function for finding items based on name */
 
 /* function for finding items based on category */

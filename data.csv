@@ -1,19 +1,19 @@
-STARBUCKS COFFEE,cafeteria,7,11
-Restaurant UNIVERSAL CLUB,cafeteria,18,16
-PHONON CAFE ROOM,cafeteria,7,12
-Craig's Cafe SEATTLE ESPRESS,cafeteria,18,11
-Cafeteria NANAMI-TEI,cafeteria,11,7
-IB Cafe,cafeteria,11,9
-Restaurant Chez Jiroud,cafeteria,15,10
-Labo Shop (NU CO-OP Shop),shop,29,19
-NU CO-OP North,shop,11,5
-Family Mart,shop,13,11
-South Cafeteria,cafeteria,4,17
-NU CO-OP South,shop,5,17
-Amenity House,shop,6,17
-FOREST Books & Cafe,cafeteria,19,7
-Green Salon Higashiyama,cafeteria,21,8
-Toyoda Auditorium / Symposion,Convention facility,17,15
-Noyori Conference Hall,Convention facility,21,14
-E & S Hall,Convention facility,16,9
-Sakata & Hirata Hall,Convention facility,19,11
+STARBUCKSCOFFEE cafeteria 7 11
+RestaurantUNIVERSALCLUB cafeteria 18 16
+PHONONCAFEROOM cafeteria 7 12
+Craig'sCafeSEATTLEESPRESS cafeteria 18 11
+CafeteriaNANAMI-TEI cafeteria 11 7
+IBCafe cafeteria 11 9
+RestaurantChezJiroud cafeteria 15 10
+LaboShop(NUCO-OPShop) shop 29 19
+NUCO-OPNorth shop 11 5
+FamilyMart shop 13 11
+SouthCafeteria cafeteria 4 17
+NUCO-OPSouth shop 5 17
+AmenityHouse shop 6 17
+FORESTBooks&Cafe cafeteria 19 7
+GreenSalonHigashiyama cafeteria 21 8
+ToyodaAuditorium/Symposion Conventionfacility 17 15
+NoyoriConferenceHall Conventionfacility 21 14
+E&SHall Conventionfacility 16 9
+Sakata&HirataHall Conventionfacility 19 11

@@ -7,6 +7,8 @@
 
 void insert_item(void);
 void print_all_items(void);
+void load_items(void);
+void save_items(void);
 
 /* main function */
 int main(void)
@@ -22,6 +24,10 @@ int main(void)
       case 'i': insert_item();
         break;
       case 'p': print_all_items();
+        break;
+      case 'l': load_items();
+        break;
+      case 's': save_items();
         break;
       // case 's': search();
       //   break;
