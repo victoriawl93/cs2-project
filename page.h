@@ -11,14 +11,14 @@
 /*
  * Macro definitions related to page viewing
  */
-
+ #define RESULT_PAGE "result.html"
 
 /*
  * Function prototypes related to page viewing
  */
 
 /* function prototype to show query result pages */
-
+void print_page(Item *result[], int size);
 
 
 #endif
