@@ -11,7 +11,9 @@ void load_items(void);
 void save_items(void);
 void find_items_by_name(void);
 void find_items_by_category(void);
-
+void find_items_by_range(void);
+void find_nearest_neighbor(void);
+void how_far(void);
 /* main function */
 int main(void)
 {
@@ -34,6 +36,12 @@ int main(void)
       case 'f': find_items_by_name();
         break;
       case 'c': find_items_by_category();
+        break;
+      case 'r': find_items_by_range();
+        break;
+      case 'n': find_nearest_neighbor();
+        break;
+      case 'h': how_far();
         break;
       case 'q': return 0;
       default: printf("Illegal code\n");

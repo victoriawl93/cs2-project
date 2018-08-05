@@ -136,5 +136,107 @@ void find_items_by_category() {
    }
 }
 /* function for finding items based on range */
+void find_items_by_range() {
+  Item *result[MAX_ITEM_SIZE];
+  int num_result = 0;
 
+  float user_x, user_y, threshold, distance;
+  float squareSize = 40.0;
+  printf("Enter your x coordinate: \n");
+  scanf("%f", &user_x);
+  printf("Enter your y coordinate: \n");
+  scanf("%f", &user_y);
+  printf("Enter distance threshold: \n");
+  scanf("%f", &threshold);
+  strcpy(result[0]->name, "You");
+  strcpy(result[0]->category, "your position");
+  result[0]->x = user_x;
+  result[0]->y = user_y;
+  num_result++;
+
+  for (int i = 0; i < currentNum; i++) {
+    int x = (float)ItemsArray[i].x;
+    int y = (float)ItemsArray[i].y;
+    distance = sqrt(powf((user_x - x),2)+powf((user_y - y),2))*squareSize;
+    if (distance <= threshold) {
+      result[num_result] = &(ItemsArray)[i];
+      num_result++;
+    }
+  }
+  if (num_result > 1) {
+    printf("%d records were found within %f meters of you\n", num_result, threshold);
+    print_page(result, num_result);
+  }
+  else {
+    printf("Nothing found within %d meters of you\n", (int)threshold);
+  }
+}
 /* function for nearest neighbor items */
+void find_nearest_neighbor() {
+  Item *result[2];
+  int num_result = 2;
+
+  float user_x, user_y;
+  float distance;
+  int init = 0;
+  float distanceCurrent;
+  float squareSize = 40.0;
+  printf("Enter your x coordinate: \n");
+  scanf("%f", &user_x);
+  printf("Enter your y coordinate: \n");
+  scanf("%f", &user_y);
+  strcpy(result[0]->name, "You");
+  strcpy(result[0]->category, "your position");
+  result[0]->x = user_x;
+  result[0]->y = user_y;
+
+  for (int i = 0; i < currentNum; i++) {
+    int x = (float)ItemsArray[i].x;
+    int y = (float)ItemsArray[i].y;
+    distanceCurrent = sqrt(powf((user_x - x),2)+powf((user_y - y),2))*squareSize;
+    if (init == 0) {
+      distance = distanceCurrent;
+      init = 1;
+      result[1] = &(ItemsArray)[i];
+    }
+    else {
+      if (distance > distanceCurrent) {
+        distance = distanceCurrent;
+        result[1] = &(ItemsArray)[i];
+      }
+    }
+  }
+  printf("%s\n", result[1]->name);
+  print_page(result, num_result);
+}
+/* function for how far am i from */
+void how_far() {
+  float user_x, user_y;
+  float distance;
+  float squareSize = 40.0;
+  char item_name[30];
+  int found = 0;
+  printf("Enter your x coordinate: \n");
+  scanf("%f", &user_x);
+  printf("Enter your y coordinate: \n");
+  scanf("%f", &user_y);
+  printf("Enter an item name: \n");
+  scanf("%s", item_name);
+
+
+  for (int i = 0; i < currentNum; i++) {
+    if (strcmp(item_name, ItemsArray[i].name) == 0) {
+      found = 1;
+      int x = (float)ItemsArray[i].x;
+      int y = (float)ItemsArray[i].y;
+      distance = sqrt(powf((user_x - x),2)+powf((user_y - y),2))*squareSize;
+      break;
+    }
+  }
+  if (found == 1) {
+    printf("You are %.0f metres away from %s\n", distance, item_name);
+  }
+  else {
+    printf("%s was not found on the map\n", item_name);
+  }
+}

@@ -35,7 +35,9 @@ void find_items_by_name();
 /* function prototype for finding items based on category */
 void find_items_by_category();
 /* function prototype for finding items based on range */
-
+void find_items_by_range();
 /* function prototype for nearest neighbor items */
+void find_nearest_neighbor();
 
+void how_far();
 #endif
